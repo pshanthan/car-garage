@@ -13,30 +13,24 @@ import { Form } from '@angular/forms';
 })
 export class CarlistComponent implements OnInit {
   cars: Car[] = [];
-  carForm = new FormGroup([
-    {
-      id: new FormControl('', {
-        nonNullable: true,
-        validators: Validators.required,
-      }),
-      make: new FormControl('', {
-        nonNullable: true,
-        validators: Validators.required,
-      }),
-      model: new FormControl('', {
-        nonNullable: true,
-        validators: Validators.required,
-      }),
-      year: new FormControl('', {
-        nonNullable: true,
-        validators: Validators.required,
-      }),
-      mileage: new FormControl('', {
-        nonNullable: true,
-        validators: Validators.required,
-      }),
-    },
-  ]);
+  carForm = new FormGroup({
+    make: new FormControl('', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+    model: new FormControl('', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+    year: new FormControl('', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+    mileage: new FormControl('', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+  });
   constructor(private carService: CarService) {}
   ngOnInit(): void {
     this.getCars();
