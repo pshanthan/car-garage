@@ -12,4 +12,7 @@ export class CarService {
   getCars(): Observable<Car[]> {
     return this.httpClient.get<Car[]>(this.apiUrl);
   }
+  addCar(c: Car) {
+    this.httpClient.post(this.apiUrl, c);
+  }
 }
