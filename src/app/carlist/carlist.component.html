@@ -1,3 +1,11 @@
+<form [formGroupName]="carForm" (ngSubmit)="onSubmit()">
+  <input formControlName="make" />
+  <input formControlName="model" />
+  <input formControlName="year" />
+  <input formControlName="mileage" />
+  <button type="submit"></button>
+</form>
+
 <div *ngFor="let car of cars">
   <div>
     {{ car.make }} - {{ car.model }} = {{ car.year }} - {{ car.mileage }}
