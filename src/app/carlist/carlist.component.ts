@@ -3,7 +3,7 @@ import { CarService } from '../car.service';
 import { Car } from '../../models/Car';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Form } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-carlist',
@@ -38,6 +38,13 @@ export class CarlistComponent implements OnInit {
   getCars() {
     return this.carService.getCars().subscribe((car) => (this.cars = car));
   }
-  addCar(c: Car) {}
-  onSubmit() {}
+  onSubmit(c: Car) {
+    const rawCar = this.carForm.getRawValue();
+    const car: Car = {
+      make: rawCar.make,
+      model: rawCar.model,
+      year: Number(rawCar.year),
+      mileage: Number(rawCar.mileage),
+    };
+  }
 }
