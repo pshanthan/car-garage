@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class CarService {
   constructor(private httpClient: HttpClient) {}
+  apiUrl = 'http://localhost:3000/cars';
+  getCars() {
+    this.httpClient.get;
+  }
 }
