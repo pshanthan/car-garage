@@ -18,4 +18,8 @@ export class CarlistComponent implements OnInit {
   getCars() {
     return this.carService.getCars().subscribe((car) => (this.cars = car));
   }
+  addCar(c: Car) {
+    c.id = Date.now();
+    this.carService.addCar(c);
+  }
 }
