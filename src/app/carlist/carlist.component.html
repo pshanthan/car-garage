@@ -1,1 +1,5 @@
-<p>carlist works!</p>
+<div *ngFor="let car of cars">
+  <div>
+    {{ car.make }} - {{ car.model }} = {{ car.year }} - {{ car.mileage }}
+  </div>
+</div>

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { CarService } from '../car.service';
-import { Observable } from 'rxjs';
 import { Car } from '../../models/Car';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-carlist',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './carlist.component.html',
   styleUrl: './carlist.component.css',
 })
