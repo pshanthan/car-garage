@@ -4,9 +4,10 @@ import { Car } from '../../models/Car';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { CarCardComponent } from '../car-card/car-card.component';
 @Component({
   selector: 'app-carlist',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, CarCardComponent],
   templateUrl: './carlist.component.html',
   styleUrl: './carlist.component.css',
 })
