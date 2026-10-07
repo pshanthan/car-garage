@@ -10,5 +10,5 @@
   <div>
     {{ car.make }} - {{ car.model }} = {{ car.year }} - {{ car.mileage }}
   </div>
-  <button [routerLink]="['edit', car.id]">EDIT</button>
+  <button (click)="startEdit(car)">EDIT</button>
 </div>
