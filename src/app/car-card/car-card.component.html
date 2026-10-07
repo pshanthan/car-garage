@@ -1,6 +1,6 @@
 <div>
   {{ car.make | uppercase }} - {{ car.model }} = {{ car.year }} -
-  {{ car.mileage | number }}
+  {{ car.mileage | mileage }}
 </div>
 <button (click)="edit.emit(car)">EDIT</button>
 <button (click)="remove.emit(car.id!)">Delete</button>
