@@ -38,7 +38,7 @@ export class CarlistComponent implements OnInit {
   getCars() {
     return this.carService.getCars().subscribe({
       next: (car) => (this.cars = car),
-      error: (err) => console.error('Failer to load car'),
+      error: (err) => console.error('Failed to load car'),
     });
   }
   onSubmit() {
