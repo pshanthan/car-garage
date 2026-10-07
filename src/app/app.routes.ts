@@ -5,7 +5,8 @@ import { authGuard } from './auth.guard';
 export const routes: Routes = [
   {
     path: 'list',
-    component: CarlistComponent,
+    loadComponent: () =>
+      import('./carlist/carlist.component').then((m) => m.CarlistComponent),
     canActivate: [authGuard],
   },
   {
