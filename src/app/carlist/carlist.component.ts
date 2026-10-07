@@ -38,7 +38,7 @@ export class CarlistComponent implements OnInit {
   getCars() {
     return this.carService.getCars().subscribe((car) => (this.cars = car));
   }
-  onSubmit(c: Car) {
+  onSubmit() {
     const rawCar = this.carForm.getRawValue();
     const car: Car = {
       make: rawCar.make,
