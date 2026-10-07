@@ -33,10 +33,7 @@ export class CarlistComponent implements OnInit {
     }),
   });
   editingId: number | null = null;
-  constructor(
-    private carService: CarService,
-    private activatedroute: ActivatedRoute,
-  ) {}
+  constructor(private carService: CarService) {}
   ngOnInit(): void {
     this.getCars();
   }
