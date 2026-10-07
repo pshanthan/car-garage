@@ -52,7 +52,11 @@ export class CarlistComponent implements OnInit {
       mileage: Number(rawCar.mileage),
     };
     if (this.editingId) {
-      const car: Car = this.cars.find((c) => c.id === this.editingId);
+      car.id = this.editingId;
+      this.carService.updateCar(car).subscribe((updated) => {
+        this.cars = this.cars.map((c) => (c.id === updated.id ? updated : c));
+      });
+      this.editingId = null;
     } else {
       this.carService.addCar(car).subscribe((c) => {
         this.cars = [...this.cars, c];
