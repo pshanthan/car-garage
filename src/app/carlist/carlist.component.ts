@@ -4,15 +4,17 @@ import { Car } from '../../models/Car';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-carlist',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './carlist.component.html',
   styleUrl: './carlist.component.css',
 })
 export class CarlistComponent implements OnInit {
   cars: Car[] = [];
+  editingId: number | null = null;
   carForm = new FormGroup({
     make: new FormControl('', {
       nonNullable: true,
@@ -31,7 +33,10 @@ export class CarlistComponent implements OnInit {
       validators: Validators.required,
     }),
   });
-  constructor(private carService: CarService) {}
+  constructor(
+    private carService: CarService,
+    private activatedroute: ActivatedRoute,
+  ) {}
   ngOnInit(): void {
     this.getCars();
   }
@@ -50,5 +55,12 @@ export class CarlistComponent implements OnInit {
       this.cars = [...this.cars, c];
     });
     this.carForm.reset();
+  }
+  updateCar(c: Car) {
+    const idParam = this.activatedroute.snapshot.paramMap.get('id');
+    this.editingId = Number(idParam);
+    const iDfound = this.carService
+      .getCars()
+      .subscribe((c) => this.editingId === c.id);
   }
 }

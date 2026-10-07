@@ -15,4 +15,7 @@ export class CarService {
   addCar(c: Car): Observable<Car> {
     return this.httpClient.post<Car>(this.apiUrl, c);
   }
+  updateCar(c: Car) {
+    return this.httpClient.put(this.apiUrl, c);
+  }
 }
