@@ -7,9 +7,6 @@
 </form>
 
 <div *ngFor="let car of cars">
-  <div>
-    {{ car.make }} - {{ car.model }} = {{ car.year }} - {{ car.mileage }}
-  </div>
   <button (click)="startEdit(car)">EDIT</button>
   <button (click)="deleteCar(car)">Delete</button>
   <app-car-card [car]="car"></app-car-card>
