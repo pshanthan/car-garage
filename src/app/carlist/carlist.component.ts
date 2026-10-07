@@ -46,6 +46,9 @@ export class CarlistComponent implements OnInit {
       year: Number(rawCar.year),
       mileage: Number(rawCar.mileage),
     };
-    this.carService.addCar().subscribe();
+    this.carService.addCar(car).subscribe((c) => {
+      this.cars = [...this.cars, c];
+    });
+    this.carForm.reset();
   }
 }
