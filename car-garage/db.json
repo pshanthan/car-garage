@@ -1,25 +1,33 @@
 {
   "cars": [
     {
-      "id": 1,
+      "id": "1",
       "make": "Toyota",
       "model": "Camry",
       "year": 2022,
       "mileage": 15000
     },
     {
-      "id": 2,
+      "id": "2",
       "make": "Honda",
       "model": "Civic",
       "year": 2021,
       "mileage": 22000
     },
     {
-      "id": 3,
+      "id": "3",
       "make": "Ford",
       "model": "Mustang",
       "year": 2023,
       "mileage": 8000
+    },
+    {
+      "make": "asd",
+      "model": "asfasedf",
+      "year": 12000,
+      "mileage": 213,
+      "id": "nfA8H08872s"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
