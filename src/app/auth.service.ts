@@ -13,6 +13,6 @@ export class AuthService {
     this.loggedIn = true;
   }
   logout(): void {
-    this.isLoggedIn = false;
+    this.loggedIn = false;
   }
 }
