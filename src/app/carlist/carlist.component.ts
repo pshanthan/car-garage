@@ -36,7 +36,10 @@ export class CarlistComponent implements OnInit {
     this.getCars();
   }
   getCars() {
-    return this.carService.getCars().subscribe((car) => (this.cars = car));
+    return this.carService.getCars().subscribe({
+      next: (car) => (this.cars = car),
+      error: (err) => console.error('Failer to load car'),
+    });
   }
   onSubmit() {
     const rawCar = this.carForm.getRawValue();
