@@ -4,17 +4,16 @@ import { Car } from '../../models/Car';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-carlist',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './carlist.component.html',
   styleUrl: './carlist.component.css',
 })
 export class CarlistComponent implements OnInit {
   cars: Car[] = [];
-  editingId: number | null = null;
   carForm = new FormGroup({
     make: new FormControl('', {
       nonNullable: true,
@@ -33,6 +32,7 @@ export class CarlistComponent implements OnInit {
       validators: Validators.required,
     }),
   });
+  editingId: number | null = null;
   constructor(
     private carService: CarService,
     private activatedroute: ActivatedRoute,
@@ -51,16 +51,22 @@ export class CarlistComponent implements OnInit {
       year: Number(rawCar.year),
       mileage: Number(rawCar.mileage),
     };
-    this.carService.addCar(car).subscribe((c) => {
-      this.cars = [...this.cars, c];
-    });
+    if (this.editingId) {
+      const car: Car = this.cars.find((c) => c.id === this.editingId);
+    } else {
+      this.carService.addCar(car).subscribe((c) => {
+        this.cars = [...this.cars, c];
+      });
+    }
     this.carForm.reset();
   }
-  updateCar(id: number) {
-    const idParam = this.activatedroute.snapshot.paramMap.get('id');
-    this.editingId = Number(idParam);
-    const iDfound = this.carService
-      .getCars()
-      .subscribe((c) => this.editingId === c.id);
+  startEdit(car: Car) {
+    this.editingId = car.id ?? null;
+    this.carForm.patchValue({
+      make: car.make,
+      model: car.model,
+      year: String(car.year),
+      mileage: String(car.year),
+    });
   }
 }
