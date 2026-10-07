@@ -18,7 +18,7 @@ export class CarService {
   updateCar(c: Car): Observable<Car> {
     return this.httpClient.put<Car>(`${this.apiUrl}/${c.id}`, c);
   }
-  deleteCar(id: number) {
-    return this.httpClient.delete(`${this.apiUrl}/${id}`);
+  deleteCar(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

@@ -7,8 +7,6 @@
 </form>
 
 <div *ngFor="let car of cars">
-  <button (click)="startEdit(car)">EDIT</button>
-  <button (click)="deleteCar(car.id)">Delete</button>
   <app-car-card
     [car]="car"
     (edit)="startEdit($event)"
