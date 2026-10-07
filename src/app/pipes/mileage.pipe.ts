@@ -1,12 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'mileage'
+  name: 'mileage',
 })
 export class MileagePipe implements PipeTransform {
-
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: number): string {
+    return `${value.toLocaleString()} miles`;
   }
-
 }
