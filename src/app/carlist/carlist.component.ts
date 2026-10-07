@@ -65,7 +65,7 @@ export class CarlistComponent implements OnInit {
       make: car.make,
       model: car.model,
       year: String(car.year),
-      mileage: String(car.year),
+      mileage: String(car.mileage),
     });
   }
 }
