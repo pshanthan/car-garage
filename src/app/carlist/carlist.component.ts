@@ -69,8 +69,8 @@ export class CarlistComponent implements OnInit {
     });
   }
   deleteCar(c: Car) {
-    this.carService
-      .deleteCar(c)
-      .subscribe((cars) => cars.filter(c.id !== car.id));
+    this.carService.deleteCar(c).subscribe(() => {
+      this.cars = this.cars.filter((x) => x.id! == c.id);
+    });
   }
 }
