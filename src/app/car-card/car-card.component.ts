@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { Car } from '../../models/Car';
 import { Input } from '@angular/core';
+import { Output } from '@angular/core';
 
 @Component({
   selector: 'app-car-card',
@@ -10,4 +11,6 @@ import { Input } from '@angular/core';
 })
 export class CarCardComponent {
   @Input() car!: Car;
+  @Output() edit = new EventEmitter<Car>();
+  @Output() remove = new EventEmitter<number>();
 }

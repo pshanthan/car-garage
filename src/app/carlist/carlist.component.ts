@@ -72,9 +72,9 @@ export class CarlistComponent implements OnInit {
       mileage: String(car.mileage),
     });
   }
-  deleteCar(c: Car) {
-    this.carService.deleteCar(c).subscribe(() => {
-      this.cars = this.cars.filter((x) => x.id !== c.id);
+  deleteCar(id: number) {
+    this.carService.deleteCar(id).subscribe(() => {
+      this.cars = this.cars.filter((x) => x.id !== id);
     });
   }
 }
