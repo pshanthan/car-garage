@@ -70,7 +70,7 @@ export class CarlistComponent implements OnInit {
   }
   deleteCar(c: Car) {
     this.carService.deleteCar(c).subscribe(() => {
-      this.cars = this.cars.filter((x) => x.id! == c.id);
+      this.cars = this.cars.filter((x) => x.id !== c.id);
     });
   }
 }
