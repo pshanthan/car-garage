@@ -56,7 +56,7 @@ export class CarlistComponent implements OnInit {
     });
     this.carForm.reset();
   }
-  updateCar(c: Car) {
+  updateCar(id: number) {
     const idParam = this.activatedroute.snapshot.paramMap.get('id');
     this.editingId = Number(idParam);
     const iDfound = this.carService
