@@ -6,4 +6,8 @@ export const routes: Routes = [
     path: 'list',
     component: CarlistComponent,
   },
+  {
+    path: 'addForm',
+    component: CarlistComponent,
+  },
 ];
